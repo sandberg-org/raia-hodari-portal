@@ -1,6 +1,6 @@
 
 import ServiceCard from "./ServiceCard";
-import { FileText, Search, MessageSquare, User } from "lucide-react";
+import { Search, FileText, MessageSquare, User } from "lucide-react";
 
 const ServicesSection = () => {
   return (

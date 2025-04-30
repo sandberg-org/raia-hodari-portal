@@ -13,10 +13,10 @@ const Hero = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button asChild className="bg-white text-police-800 hover:bg-gray-100 text-lg py-6 px-8">
-              <Link to="/file-complaint">File a Complaint</Link>
+              <Link to="/traffic-fines">Check Traffic Fines</Link>
             </Button>
             <Button asChild variant="outline" className="border-white text-white hover:bg-police-600 text-lg py-6 px-8">
-              <Link to="/track">Track Your Complaint</Link>
+              <Link to="/file-complaint">File a Complaint</Link>
             </Button>
           </div>
         </div>

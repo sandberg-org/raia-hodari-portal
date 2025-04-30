@@ -7,15 +7,15 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState<"en" | "sw">("en");
+  const [language, setLanguage] = useState<"en" | "sw" | "fr">("en");
   const isMobile = useIsMobile();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const toggleLanguage = () => {
-    setLanguage(language === "en" ? "sw" : "en");
+  const changeLanguage = (lang: "en" | "sw" | "fr") => {
+    setLanguage(lang);
   };
 
   return (
@@ -29,15 +29,42 @@ const Header = () => {
         </Link>
 
         <div className="flex items-center space-x-4">
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            onClick={toggleLanguage} 
-            className="text-white hover:bg-police-700"
-          >
-            <Globe className="h-5 w-5 mr-1" />
-            {language === "en" ? "English" : "Kiswahili"}
-          </Button>
+          <div className="relative">
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="text-white hover:bg-police-700 flex items-center"
+              onClick={() => {
+                // Toggle dropdown in a real app
+              }}
+            >
+              <Globe className="h-5 w-5 mr-1" />
+              {language === "en" ? "English" : language === "sw" ? "Kiswahili" : "Français"}
+            </Button>
+            {/* This would be a dropdown menu in a real implementation */}
+            <div className="absolute mt-1 right-0 w-40 bg-white rounded-md shadow-lg overflow-hidden z-20 hidden">
+              <div className="py-1">
+                <button 
+                  className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                  onClick={() => changeLanguage("en")}
+                >
+                  English
+                </button>
+                <button 
+                  className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                  onClick={() => changeLanguage("sw")}
+                >
+                  Kiswahili
+                </button>
+                <button 
+                  className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                  onClick={() => changeLanguage("fr")}
+                >
+                  Français
+                </button>
+              </div>
+            </div>
+          </div>
           
           {isMobile ? (
             <Button variant="ghost" size="icon" onClick={toggleMenu} className="text-white">

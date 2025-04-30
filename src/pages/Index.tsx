@@ -11,6 +11,38 @@ const Index = () => {
       <Header />
       <main className="flex-grow">
         <Hero />
+        
+        {/* Featured Service - Traffic Fines */}
+        <section className="py-12 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto bg-police-50 rounded-xl overflow-hidden shadow-lg">
+              <div className="md:flex">
+                <div className="md:w-2/3 p-8">
+                  <div className="text-police-700 font-semibold text-lg mb-1">Most Popular Service</div>
+                  <h2 className="text-3xl font-bold text-police-800 mb-4">Check & Pay Traffic Fines</h2>
+                  <p className="text-gray-600 mb-6">
+                    Easily check if you have any outstanding traffic fines and pay them online 
+                    without having to visit a police station. Simply enter your ID number, 
+                    driving license or vehicle registration number.
+                  </p>
+                  <div className="flex space-x-2">
+                    <a href="/traffic-fines" 
+                      className="bg-police-700 text-white px-6 py-2 rounded-md font-medium hover:bg-police-800 transition-colors">
+                      Check Fines Now
+                    </a>
+                  </div>
+                </div>
+                <div className="md:w-1/3 bg-police-100 flex items-center justify-center p-8">
+                  <div className="text-police-800 text-center">
+                    <div className="text-6xl font-bold mb-2">24/7</div>
+                    <div className="text-lg">Online Service</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         <ServicesSection />
         <FAQSection />
         
