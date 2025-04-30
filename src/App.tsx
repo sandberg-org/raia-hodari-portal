@@ -10,6 +10,9 @@ import FileComplaint from "./pages/FileComplaint";
 import TrackComplaint from "./pages/TrackComplaint";
 import TrafficFines from "./pages/TrafficFines";
 import ReplaceLicense from "./pages/ReplaceLicense";
+import LostDocuments from "./pages/LostDocuments";
+import DrivingResults from "./pages/DrivingResults";
+import TrackService from "./pages/TrackService";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +28,9 @@ const App = () => (
           <Route path="/track" element={<TrackComplaint />} />
           <Route path="/traffic-fines" element={<TrafficFines />} />
           <Route path="/replace-license" element={<ReplaceLicense />} />
+          <Route path="/lost-documents" element={<LostDocuments />} />
+          <Route path="/driving-results" element={<DrivingResults />} />
+          <Route path="/track-service" element={<TrackService />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

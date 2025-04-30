@@ -14,30 +14,30 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <ServiceCard
-            title="File a Complaint"
-            description="Report incidents or file complaints online without visiting a police station."
-            icon={FileText}
-            link="/file-complaint"
-          />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <ServiceCard
             title="Check Traffic Fines"
-            description="View and pay your traffic violation fines online."
+            description="View and pay your traffic violation fines online without visiting a police station."
             icon={Search}
             link="/traffic-fines"
           />
           <ServiceCard
-            title="Replace Lost License"
-            description="Request a duplicate license if yours is lost or damaged."
-            icon={MessageSquare}
-            link="/replace-license"
+            title="Check Lost Documents"
+            description="Check if your lost documents have been found and submitted to any police station."
+            icon={FileText}
+            link="/lost-documents"
           />
           <ServiceCard
-            title="Track Complaints"
-            description="Check the status of your previously filed complaints."
+            title="Driving Test Results"
+            description="View your driving test results online and download your certificate."
+            icon={MessageSquare}
+            link="/driving-results"
+          />
+          <ServiceCard
+            title="Track Service Status"
+            description="Check the status and progress of your submitted service requests."
             icon={User}
-            link="/track"
+            link="/track-service"
           />
         </div>
       </div>

@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import ServicesSection from "@/components/ServicesSection";
-import StatisticsSection from "@/components/StatisticsSection";
+import FAQSection from "@/components/FAQSection";
 
 const Index = () => {
   return (
@@ -12,7 +12,7 @@ const Index = () => {
       <main className="flex-grow">
         <Hero />
         <ServicesSection />
-        <StatisticsSection />
+        <FAQSection />
         
         {/* Call to Action Section */}
         <section className="py-16 bg-police-700 text-white">
