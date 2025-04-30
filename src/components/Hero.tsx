@@ -9,7 +9,7 @@ const Hero = () => {
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Kenya Police Online Services</h1>
           <p className="text-xl md:text-2xl mb-8">
-            Access police services easily and conveniently from anywhere
+            Check your traffic fines and access other police services easily
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button asChild className="bg-white text-police-800 hover:bg-gray-100 text-lg py-6 px-8">

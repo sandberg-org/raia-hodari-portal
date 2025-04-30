@@ -2,8 +2,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Menu, X, User, Globe } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,6 +22,8 @@ const Header = () => {
 
   const changeLanguage = (lang: "en" | "sw" | "fr") => {
     setLanguage(lang);
+    // In a real app, this would trigger language change throughout the application
+    console.log(`Language changed to ${lang}`);
   };
 
   return (
@@ -28,63 +36,53 @@ const Header = () => {
           <div className="font-bold text-xl hidden sm:block">Kenya Police Services</div>
         </Link>
 
-        <div className="flex items-center space-x-4">
-          <div className="relative">
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="text-white hover:bg-police-700 flex items-center"
-              onClick={() => {
-                // Toggle dropdown in a real app
-              }}
-            >
-              <Globe className="h-5 w-5 mr-1" />
-              {language === "en" ? "English" : language === "sw" ? "Kiswahili" : "Français"}
-            </Button>
-            {/* This would be a dropdown menu in a real implementation */}
-            <div className="absolute mt-1 right-0 w-40 bg-white rounded-md shadow-lg overflow-hidden z-20 hidden">
-              <div className="py-1">
-                <button 
-                  className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
-                  onClick={() => changeLanguage("en")}
-                >
-                  English
-                </button>
-                <button 
-                  className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
-                  onClick={() => changeLanguage("sw")}
-                >
-                  Kiswahili
-                </button>
-                <button 
-                  className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
-                  onClick={() => changeLanguage("fr")}
-                >
-                  Français
-                </button>
-              </div>
-            </div>
-          </div>
+        <div className="flex items-center">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="text-white hover:bg-police-700 flex items-center"
+              >
+                <Globe className="h-5 w-5 mr-2" />
+                {language === "en" ? "English" : language === "sw" ? "Kiswahili" : "Français"}
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="bg-white">
+              <DropdownMenuItem 
+                onClick={() => changeLanguage("en")}
+                className="cursor-pointer"
+              >
+                English
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                onClick={() => changeLanguage("sw")}
+                className="cursor-pointer"
+              >
+                Kiswahili
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                onClick={() => changeLanguage("fr")}
+                className="cursor-pointer"
+              >
+                Français
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           
-          {isMobile ? (
-            <Button variant="ghost" size="icon" onClick={toggleMenu} className="text-white">
+          {isMobile && (
+            <Button variant="ghost" size="icon" onClick={toggleMenu} className="text-white ml-2">
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </Button>
-          ) : (
-            <Button variant="outline" size="sm" className="bg-police-700 text-white hover:bg-police-600 border-police-600">
-              <User size={16} className="mr-2" /> Sign In
             </Button>
           )}
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu - simplified without sign in */}
       {isMobile && isMenuOpen && (
         <div className="bg-police-700 animate-accordion-down">
-          <div className="container mx-auto px-4 py-3 flex flex-col space-y-4">
-            <Button variant="outline" size="sm" className="bg-police-600 text-white hover:bg-police-500 border-police-500">
-              <User size={16} className="mr-2" /> Sign In
-            </Button>
+          <div className="container mx-auto px-4 py-3">
+            {/* Mobile menu content if needed */}
           </div>
         </div>
       )}
