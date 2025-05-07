@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -156,13 +155,11 @@ const TempDrivingLicense = () => {
                   <div className="bg-police-100 p-2 rounded-full">
                     <FileText className="h-6 w-6 text-police-700" />
                   </div>
-                  <h2 className="text-2xl font-semibold">About This Service</h2>
+                  <h2 className="text-2xl font-semibold">{t("tempLicense.aboutService")}</h2>
                 </div>
                 
                 <p className="mb-4">
-                  The Temporary Driving License Certificate is an official document issued by the Kenya Police Service 
-                  to individuals who have applied for a duplicate driving license. This certificate serves as a temporary 
-                  authorization to drive while waiting for your duplicate license to be processed.
+                  {t("tempLicense.aboutServiceDesc")}
                 </p>
                 
                 <div className="flex flex-col md:flex-row gap-6 my-6">
@@ -171,8 +168,8 @@ const TempDrivingLicense = () => {
                       <Clock className="h-5 w-5 text-blue-700" />
                     </div>
                     <div>
-                      <h3 className="font-medium mb-1">Validity Period</h3>
-                      <p className="text-gray-600 text-sm">Valid for 15 days from the date of application for your duplicate license</p>
+                      <h3 className="font-medium mb-1">{t("tempLicense.validityPeriod")}</h3>
+                      <p className="text-gray-600 text-sm">{t("tempLicense.validityDesc")}</p>
                     </div>
                   </div>
                   
@@ -181,8 +178,8 @@ const TempDrivingLicense = () => {
                       <IdCard className="h-5 w-5 text-green-700" />
                     </div>
                     <div>
-                      <h3 className="font-medium mb-1">Requirements</h3>
-                      <p className="text-gray-600 text-sm">You must have applied for a duplicate driving license within the last 14 days</p>
+                      <h3 className="font-medium mb-1">{t("tempLicense.requirements")}</h3>
+                      <p className="text-gray-600 text-sm">{t("tempLicense.requirementsDesc")}</p>
                     </div>
                   </div>
                 </div>
@@ -190,7 +187,7 @@ const TempDrivingLicense = () => {
                 <Alert className="bg-amber-50 border-amber-200">
                   <AlertCircle className="h-4 w-4 text-amber-600" />
                   <AlertDescription className="text-amber-800">
-                    This certificate must be presented along with your National ID when requested by traffic officers.
+                    {t("tempLicense.alertText")}
                   </AlertDescription>
                 </Alert>
               </div>

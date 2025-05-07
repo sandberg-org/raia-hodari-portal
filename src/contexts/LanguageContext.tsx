@@ -47,7 +47,14 @@ export const translations: Translations = {
     "tempLicense.certificateTitle": "Temporary Driving License Certificate",
     "tempLicense.validUntil": "Valid until",
     "tempLicense.certInfo": "This certificate confirms that the holder has applied for a duplicate driving license and is authorized to drive for a period of 15 days from the date of application.",
-    
+    "tempLicense.aboutService": "About This Service",
+    "tempLicense.aboutServiceDesc": "The Temporary Driving License Certificate is an official document issued by the Kenya Police Service to individuals who have applied for a duplicate driving license. This certificate serves as a temporary authorization to drive while waiting for your duplicate license to be processed.",
+    "tempLicense.validityPeriod": "Validity Period",
+    "tempLicense.validityDesc": "Valid for 15 days from the date of application for your duplicate license",
+    "tempLicense.requirements": "Requirements",
+    "tempLicense.requirementsDesc": "You must have applied for a duplicate driving license within the last 14 days",
+    "tempLicense.alertText": "This certificate must be presented along with your National ID when requested by traffic officers.",
+
     // FAQ section
     "faq.title": "Frequently Asked Questions",
     "faq.subtitle": "Find answers to common questions about our online services and procedures.",
@@ -112,7 +119,14 @@ export const translations: Translations = {
     "tempLicense.certificateTitle": "Cheti cha Leseni ya Udereva ya Muda",
     "tempLicense.validUntil": "Halali mpaka",
     "tempLicense.certInfo": "Cheti hiki kinathibitisha kuwa mmiliki ameomba leseni ya udereva mbadala na ameruhusiwa kuendesha kwa kipindi cha siku 15 kuanzia tarehe ya maombi.",
-    
+    "tempLicense.aboutService": "Kuhusu Huduma Hii",
+    "tempLicense.aboutServiceDesc": "Cheti cha Leseni ya Udereva ya Muda ni hati rasmi inayotolewa na Huduma za Polisi Kenya kwa watu ambao wameomba leseni mbadala ya udereva. Cheti hiki ni ruhusa ya muda ya kuendesha gari ukiwa unasubiri leseni yako mbadala kusindikwa.",
+    "tempLicense.validityPeriod": "Kipindi cha Uhalali",
+    "tempLicense.validityDesc": "Halali kwa siku 15 kuanzia tarehe ya maombi ya leseni yako mbadala",
+    "tempLicense.requirements": "Mahitaji",
+    "tempLicense.requirementsDesc": "Lazima uwe umeomba leseni mbadala ya udereva ndani ya siku 14 zilizopita",
+    "tempLicense.alertText": "Cheti hiki lazima kiwasilishwe pamoja na Kitambulisho chako cha Taifa wakati kinapohitajika na maafisa wa trafiki.",
+
     // FAQ section
     "faq.title": "Maswali Yanayoulizwa Mara kwa Mara",
     "faq.subtitle": "Pata majibu ya maswali ya kawaida kuhusu huduma zetu za mtandaoni na taratibu.",
@@ -177,7 +191,14 @@ export const translations: Translations = {
     "tempLicense.certificateTitle": "Certificat de Permis de Conduite Temporaire",
     "tempLicense.validUntil": "Valable jusqu'au",
     "tempLicense.certInfo": "Ce certificat confirme que le titulaire a demandé un duplicata de permis de conduite et est autorisé à conduire pendant une période de 15 jours à partir de la date de demande.",
-    
+    "tempLicense.aboutService": "À Propos de Ce Service",
+    "tempLicense.aboutServiceDesc": "Le Certificat de Permis de Conduite Temporaire est un document officiel délivré par le Service de Police du Kenya aux personnes qui ont demandé un duplicata de permis de conduite. Ce certificat sert d'autorisation temporaire de conduire en attendant que votre duplicata de permis soit traité.",
+    "tempLicense.validityPeriod": "Période de Validité",
+    "tempLicense.validityDesc": "Valable pendant 15 jours à compter de la date de demande de votre duplicata de permis",
+    "tempLicense.requirements": "Conditions Requises",
+    "tempLicense.requirementsDesc": "Vous devez avoir demandé un duplicata de permis de conduite au cours des 14 derniers jours",
+    "tempLicense.alertText": "Ce certificat doit être présenté avec votre carte d'identité nationale lorsque les agents de la circulation le demandent.",
+
     // FAQ section
     "faq.title": "Questions Fréquemment Posées",
     "faq.subtitle": "Trouvez des réponses aux questions courantes sur nos services en ligne et nos procédures.",
