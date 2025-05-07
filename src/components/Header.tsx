@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Menu, X, Globe } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useLanguage, Language } from "@/contexts/LanguageContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,17 +14,23 @@ import {
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState<"en" | "sw" | "fr">("en");
   const isMobile = useIsMobile();
+  const { language, setLanguage } = useLanguage();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const changeLanguage = (lang: "en" | "sw" | "fr") => {
+  const changeLanguage = (lang: Language) => {
     setLanguage(lang);
-    // In a real app, this would trigger language change throughout the application
     console.log(`Language changed to ${lang}`);
+  };
+
+  // Language display names
+  const languageNames: Record<Language, string> = {
+    en: "English",
+    sw: "Kiswahili",
+    fr: "Français",
   };
 
   return (
@@ -45,7 +52,7 @@ const Header = () => {
                 className="text-white hover:bg-police-700 flex items-center"
               >
                 <Globe className="h-5 w-5 mr-2" />
-                {language === "en" ? "English" : language === "sw" ? "Kiswahili" : "Français"}
+                {languageNames[language]}
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="bg-white">

@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Define the FAQ item structure
 interface FAQItem {
@@ -74,6 +75,8 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
 };
 
 const FAQSection = () => {
+  const { t } = useLanguage();
+  
   // Use React Query for data fetching with caching
   const { data: faqs, isLoading, error } = useQuery({
     queryKey: ['faqs'],
@@ -85,18 +88,18 @@ const FAQSection = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-police-800 mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-police-800 mb-4">{t("faq.title")}</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Find answers to common questions about our online services and procedures.
+            {t("faq.subtitle")}
           </p>
         </div>
 
         <div className="max-w-3xl mx-auto space-y-4">
           {isLoading ? (
-            <div className="text-center py-8">Loading frequently asked questions...</div>
+            <div className="text-center py-8">{t("faq.loading")}</div>
           ) : error ? (
             <div className="text-center py-8 text-red-500">
-              Failed to load FAQs. Please try again later.
+              {t("faq.error")}
             </div>
           ) : (
             faqs?.map((faq) => (
