@@ -2,12 +2,12 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
-import { IdCard, Download } from "lucide-react";
+import { IdCard, Download, FileText, Clock, AlertCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { jsPDF } from "jspdf";
 
@@ -147,33 +147,91 @@ const TempDrivingLicense = () => {
           </div>
         </section>
 
+        {/* Service Description Section */}
+        <section className="py-8 bg-gray-100">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto">
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="bg-police-100 p-2 rounded-full">
+                    <FileText className="h-6 w-6 text-police-700" />
+                  </div>
+                  <h2 className="text-2xl font-semibold">About This Service</h2>
+                </div>
+                
+                <p className="mb-4">
+                  The Temporary Driving License Certificate is an official document issued by the Kenya Police Service 
+                  to individuals who have applied for a duplicate driving license. This certificate serves as a temporary 
+                  authorization to drive while waiting for your duplicate license to be processed.
+                </p>
+                
+                <div className="flex flex-col md:flex-row gap-6 my-6">
+                  <div className="flex items-start gap-3">
+                    <div className="bg-blue-100 p-2 rounded-full mt-1">
+                      <Clock className="h-5 w-5 text-blue-700" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-1">Validity Period</h3>
+                      <p className="text-gray-600 text-sm">Valid for 15 days from the date of application for your duplicate license</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="bg-green-100 p-2 rounded-full mt-1">
+                      <IdCard className="h-5 w-5 text-green-700" />
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-1">Requirements</h3>
+                      <p className="text-gray-600 text-sm">You must have applied for a duplicate driving license within the last 14 days</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <Alert className="bg-amber-50 border-amber-200">
+                  <AlertCircle className="h-4 w-4 text-amber-600" />
+                  <AlertDescription className="text-amber-800">
+                    This certificate must be presented along with your National ID when requested by traffic officers.
+                  </AlertDescription>
+                </Alert>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Application Form */}
         <section className="py-12 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-md mx-auto">
-              <Card>
-                <CardHeader>
+              <Card className="border-police-200 shadow-lg">
+                <CardHeader className="bg-police-50 border-b border-police-100">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="bg-police-100 p-2 rounded-full">
                       <IdCard className="h-6 w-6 text-police-700" />
                     </div>
-                    <CardTitle>{t("tempLicense.title")}</CardTitle>
+                    <div>
+                      <CardTitle>{t("tempLicense.title")}</CardTitle>
+                      <CardDescription className="text-police-600 mt-1">
+                        Check eligibility and get your certificate
+                      </CardDescription>
+                    </div>
                   </div>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="pt-6">
                   <div className="grid gap-4">
                     <div className="grid gap-2">
-                      <Label htmlFor="nationalId">{t("tempLicense.idLabel")}</Label>
+                      <Label htmlFor="nationalId" className="text-police-800">{t("tempLicense.idLabel")}</Label>
                       <Input 
                         id="nationalId" 
                         placeholder={t("tempLicense.idPlaceholder")} 
                         value={nationalId} 
                         onChange={(e) => setNationalId(e.target.value)}
+                        className="border-police-200 focus-visible:ring-police-500"
                       />
+                      <p className="text-xs text-gray-500">Enter the National ID number you used when applying for your duplicate license</p>
                     </div>
                     
                     <Button 
-                      className="bg-police-700 hover:bg-police-800"
+                      className="bg-police-700 hover:bg-police-800 transition-colors mt-2"
                       onClick={checkEligibility}
                       disabled={status === "checking" || !nationalId.trim()}
                     >
@@ -181,20 +239,20 @@ const TempDrivingLicense = () => {
                     </Button>
                     
                     {status === "error" && (
-                      <Alert variant="destructive">
+                      <Alert variant="destructive" className="mt-4">
                         <AlertDescription>{t("tempLicense.errorChecking")}</AlertDescription>
                       </Alert>
                     )}
                     
                     {status === "not-found" && (
-                      <Alert>
-                        <AlertTitle>{t("tempLicense.notFound")}</AlertTitle>
-                        <AlertDescription>{t("tempLicense.applyFirst")}</AlertDescription>
+                      <Alert className="mt-4 border-amber-300 bg-amber-50">
+                        <AlertTitle className="text-amber-800">{t("tempLicense.notFound")}</AlertTitle>
+                        <AlertDescription className="text-amber-700">{t("tempLicense.applyFirst")}</AlertDescription>
                       </Alert>
                     )}
                     
                     {status === "not-eligible" && (
-                      <Alert variant="destructive">
+                      <Alert variant="destructive" className="mt-4">
                         <AlertTitle>{t("tempLicense.notEligible")}</AlertTitle>
                         <AlertDescription>{t("tempLicense.applyFirst")}</AlertDescription>
                       </Alert>
@@ -202,17 +260,19 @@ const TempDrivingLicense = () => {
                     
                     {status === "eligible" && application && (
                       <>
-                        <Alert className="bg-green-50 border-green-200 text-green-800">
-                          <AlertTitle>{t("tempLicense.eligible")}</AlertTitle>
-                          <AlertDescription>
-                            Valid until: {application.expiryDate.toLocaleDateString()}
+                        <Alert className="mt-4 bg-green-50 border-green-200">
+                          <AlertTitle className="text-green-800 font-medium">{t("tempLicense.eligible")}</AlertTitle>
+                          <AlertDescription className="text-green-700">
+                            <p className="mb-1">Name: {application.name}</p>
+                            <p className="mb-1">Application Date: {application.applicationDate.toLocaleDateString()}</p>
+                            <p>Valid until: {application.expiryDate.toLocaleDateString()}</p>
                           </AlertDescription>
                         </Alert>
                         <Button 
-                          className="bg-police-700 hover:bg-police-800 mt-4"
+                          className="bg-police-700 hover:bg-police-800 mt-4 w-full flex items-center justify-center gap-2"
                           onClick={generatePDF}
                         >
-                          <Download className="mr-2 h-4 w-4" />
+                          <Download className="h-4 w-4" />
                           {t("tempLicense.downloadButton")}
                         </Button>
                       </>
