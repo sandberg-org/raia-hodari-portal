@@ -14,6 +14,7 @@ import ReplaceLicense from "./pages/ReplaceLicense";
 import LostDocuments from "./pages/LostDocuments";
 import DrivingResults from "./pages/DrivingResults";
 import TrackService from "./pages/TrackService";
+import TempDrivingLicense from "./pages/TempDrivingLicense";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/lost-documents" element={<LostDocuments />} />
             <Route path="/driving-results" element={<DrivingResults />} />
             <Route path="/track-service" element={<TrackService />} />
+            <Route path="/temp-driving-license" element={<TempDrivingLicense />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

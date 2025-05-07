@@ -1,6 +1,6 @@
 
 import ServiceCard from "./ServiceCard";
-import { Search, FileText, MessageSquare, User } from "lucide-react";
+import { Search, FileText, MessageSquare, User, IdCard } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ServicesSection = () => {
@@ -43,6 +43,13 @@ const ServicesSection = () => {
             description={t("services.trackService.desc")}
             icon={User}
             link="/track-service"
+            buttonText={t("services.access")}
+          />
+          <ServiceCard
+            title={t("services.tempDrivingLicense")}
+            description={t("services.tempDrivingLicense.desc")}
+            icon={IdCard}
+            link="/temp-driving-license"
             buttonText={t("services.access")}
           />
         </div>

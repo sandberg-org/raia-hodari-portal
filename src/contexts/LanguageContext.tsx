@@ -1,4 +1,3 @@
-
 import { createContext, useContext, useState, ReactNode } from "react";
 
 // Define the translation type
@@ -28,7 +27,26 @@ export const translations: Translations = {
     "services.drivingResults.desc": "View your driving test results online and download your certificate.",
     "services.trackService": "Track Service Status",
     "services.trackService.desc": "Check the status and progress of your submitted service requests.",
+    "services.tempDrivingLicense": "Temporary Driving License",
+    "services.tempDrivingLicense.desc": "Get a 15-day temporary driving license certificate while waiting for your duplicate license.",
     "services.access": "Access Service",
+    
+    // Temporary Driving License page
+    "tempLicense.title": "Temporary Driving License Certificate",
+    "tempLicense.subtitle": "Get a 15-day temporary driving license certificate if you've applied for a duplicate license",
+    "tempLicense.idLabel": "National ID Number",
+    "tempLicense.idPlaceholder": "Enter your National ID number",
+    "tempLicense.checkButton": "Check Eligibility",
+    "tempLicense.downloadButton": "Download Certificate",
+    "tempLicense.eligible": "You're eligible for a temporary driving license certificate",
+    "tempLicense.notEligible": "You're not eligible for a temporary certificate",
+    "tempLicense.notFound": "No application found for this ID",
+    "tempLicense.applyFirst": "Please apply for a duplicate driving license first",
+    "tempLicense.checking": "Checking eligibility...",
+    "tempLicense.errorChecking": "Error checking eligibility. Please try again.",
+    "tempLicense.certificateTitle": "Temporary Driving License Certificate",
+    "tempLicense.validUntil": "Valid until",
+    "tempLicense.certInfo": "This certificate confirms that the holder has applied for a duplicate driving license and is authorized to drive for a period of 15 days from the date of application.",
     
     // FAQ section
     "faq.title": "Frequently Asked Questions",
@@ -74,7 +92,26 @@ export const translations: Translations = {
     "services.drivingResults.desc": "Tazama matokeo ya mtihani wako wa udereva mtandaoni na upakue cheti chako.",
     "services.trackService": "Fuatilia Hali ya Huduma",
     "services.trackService.desc": "Angalia hali na maendeleo ya maombi yako ya huduma yaliyowasilishwa.",
+    "services.tempDrivingLicense": "Leseni ya Udereva ya Muda",
+    "services.tempDrivingLicense.desc": "Pata cheti cha leseni ya udereva ya siku 15 ikiwa umeomba leseni mbadala.",
     "services.access": "Pata Huduma",
+    
+    // Temporary Driving License page
+    "tempLicense.title": "Cheti cha Leseni ya Udereva ya Muda",
+    "tempLicense.subtitle": "Pata cheti cha leseni ya udereva ya siku 15 ikiwa umeomba leseni mbadala",
+    "tempLicense.idLabel": "Nambari ya Kitambulisho",
+    "tempLicense.idPlaceholder": "Ingiza nambari ya kitambulisho chako",
+    "tempLicense.checkButton": "Angalia Ustahiki",
+    "tempLicense.downloadButton": "Pakua Cheti",
+    "tempLicense.eligible": "Unastahiki kupata cheti cha leseni ya udereva ya muda",
+    "tempLicense.notEligible": "Hustahiki kupata cheti cha muda",
+    "tempLicense.notFound": "Hakuna maombi yaliyopatikana kwa kitambulisho hiki",
+    "tempLicense.applyFirst": "Tafadhali anza kuomba leseni ya udereva mbadala",
+    "tempLicense.checking": "Inakagua ustahiki...",
+    "tempLicense.errorChecking": "Hitilafu katika kukagua ustahiki. Tafadhali jaribu tena.",
+    "tempLicense.certificateTitle": "Cheti cha Leseni ya Udereva ya Muda",
+    "tempLicense.validUntil": "Halali mpaka",
+    "tempLicense.certInfo": "Cheti hiki kinathibitisha kuwa mmiliki ameomba leseni ya udereva mbadala na ameruhusiwa kuendesha kwa kipindi cha siku 15 kuanzia tarehe ya maombi.",
     
     // FAQ section
     "faq.title": "Maswali Yanayoulizwa Mara kwa Mara",
@@ -120,7 +157,26 @@ export const translations: Translations = {
     "services.drivingResults.desc": "Consultez vos résultats de test de conduite en ligne et téléchargez votre certificat.",
     "services.trackService": "Suivre l'État du Service",
     "services.trackService.desc": "Vérifiez l'état et la progression de vos demandes de service soumises.",
+    "services.tempDrivingLicense": "Permis de Conduire Temporaire",
+    "services.tempDrivingLicense.desc": "Obtenez un certificat de permis de conduire temporaire de 15 jours en attendant votre duplicata.",
     "services.access": "Accéder au Service",
+    
+    // Temporary Driving License page
+    "tempLicense.title": "Certificat de Permis de Conduire Temporaire",
+    "tempLicense.subtitle": "Obtenez un certificat de permis de conduire temporaire de 15 jours si vous avez demandé un duplicata",
+    "tempLicense.idLabel": "Numéro d'Identité Nationale",
+    "tempLicense.idPlaceholder": "Entrez votre numéro d'identité nationale",
+    "tempLicense.checkButton": "Vérifier l'Éligibilité",
+    "tempLicense.downloadButton": "Télécharger le Certificat",
+    "tempLicense.eligible": "Vous êtes éligible pour un certificat de permis de conduire temporaire",
+    "tempLicense.notEligible": "Vous n'êtes pas éligible pour un certificat temporaire",
+    "tempLicense.notFound": "Aucune demande trouvée pour cette identité",
+    "tempLicense.applyFirst": "Veuillez d'abord demander un duplicata de permis de conduite",
+    "tempLicense.checking": "Vérification de l'éligibilité...",
+    "tempLicense.errorChecking": "Erreur lors de la vérification de l'éligibilité. Veuillez réessayer.",
+    "tempLicense.certificateTitle": "Certificat de Permis de Conduire Temporaire",
+    "tempLicense.validUntil": "Valable jusqu'au",
+    "tempLicense.certInfo": "Ce certificat confirme que le titulaire a demandé un duplicata de permis de conduite et est autorisé à conduire pendant une période de 15 jours à partir de la date de demande.",
     
     // FAQ section
     "faq.title": "Questions Fréquemment Posées",
