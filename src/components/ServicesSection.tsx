@@ -2,7 +2,7 @@
 import { useState } from "react";
 import ServiceCard from "./ServiceCard";
 import DynamicServiceCard from "./DynamicServiceCard";
-import { Search, FileText, MessageSquare, User, Truck, IdCard, TrafficCone } from "lucide-react";
+import { Search, FileText, MessageSquare, User, Truck, IdCard, TrafficCone, FilePlus } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useServices, useServicesByCategory } from "@/hooks/useServices";
 import { Skeleton } from "./ui/skeleton";
