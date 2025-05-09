@@ -15,6 +15,7 @@ const dynamicServices: Service[] = [
     descriptionFr: "Enregistrer un nouveau véhicule ou transférer la propriété d'un véhicule existant.",
     descriptionSw: "Sajili gari mpya au hamisha umiliki wa gari lililopo.",
     scope: "licensing",
+    category: "licensing",
     link: "/vehicle-registration",
     identifiers: [{ type: "ID" }, { type: "VehicleRegistration" }],
     additionalFields: [
@@ -32,6 +33,7 @@ const dynamicServices: Service[] = [
     descriptionFr: "Déposer un rapport de police pour un accident de véhicule.",
     descriptionSw: "Faili ripoti ya polisi kwa ajali ya gari.",
     scope: "traffic",
+    category: "traffic",
     link: "/accident-report",
     identifiers: [{ type: "ID" }, { type: "License" }],
     additionalFields: [
@@ -50,6 +52,7 @@ const dynamicServices: Service[] = [
     descriptionFr: "Demander un certificat de vérification des antécédents à des fins d'emploi ou de visa.",
     descriptionSw: "Omba cheti cha ukaguzi wa historia kwa madhumuni ya ajira au visa.",
     scope: "documents",
+    category: "documents",
     link: "/background-check",
     identifiers: [{ type: "ID" }, { type: "Passport" }],
     additionalFields: [
@@ -59,22 +62,77 @@ const dynamicServices: Service[] = [
     isActive: true
   },
   {
-    id: "firearm-license",
-    nameEn: "Firearm License Application",
-    nameFr: "Demande de permis d'arme à feu",
-    nameSw: "Maombi ya Leseni ya Silaha",
-    descriptionEn: "Apply for a firearm license or renew an existing one.",
-    descriptionFr: "Demander un permis d'arme à feu ou renouveler un permis existant.",
-    descriptionSw: "Omba leseni ya silaha au fanya upya iliyopo.",
+    id: "dl-duplicate",
+    nameEn: "DL Duplicate",
+    nameFr: "Duplicata de Permis de Conduire",
+    nameSw: "Nakala Mbadala ya Leseni ya Udereva",
+    descriptionEn: "Apply for a duplicate driving license in case you lost the original.",
+    descriptionFr: "Demander un duplicata de permis de conduire en cas de perte de l'original.",
+    descriptionSw: "Omba nakala mbadala ya leseni ya udereva ikiwa umepoteza ya awali.",
     scope: "licensing",
-    link: "/firearm-license",
+    category: "licensing",
+    link: "/dl-duplicate",
     identifiers: [{ type: "ID" }],
     additionalFields: [
-      { name: "weaponType", type: "text" },
-      { name: "reasonForApplication", type: "text" },
-      { name: "previousLicenseNumber", type: "text" }
+      { name: "originalLicenseNumber", type: "text" },
+      { name: "issueDate", type: "date" }
     ],
-    isActive: false // This service is currently inactive
+    isActive: true
+  },
+  {
+    id: "foreign-dl-exchange",
+    nameEn: "Foreign DL Exchange",
+    nameFr: "Échange de Permis de Conduire Étranger",
+    nameSw: "Kubadilishana Leseni ya Udereva ya Kigeni",
+    descriptionEn: "Exchange your foreign driving license for a local one.",
+    descriptionFr: "Échangez votre permis de conduire étranger contre un permis local.",
+    descriptionSw: "Badilisha leseni yako ya udereva ya kigeni kwa ya ndani.",
+    scope: "licensing",
+    category: "licensing",
+    link: "/foreign-dl-exchange",
+    identifiers: [{ type: "ID" }, { type: "Passport" }],
+    additionalFields: [
+      { name: "countryOfIssue", type: "text" },
+      { name: "foreignLicenseNumber", type: "text" },
+      { name: "expiryDate", type: "date" }
+    ],
+    isActive: true
+  },
+  {
+    id: "pdl-correction",
+    nameEn: "Correction of PDL",
+    nameFr: "Correction de Permis Provisoire",
+    nameSw: "Marekebisho ya Leseni ya Udereva ya Muda",
+    descriptionEn: "Correct information on your provisional driving license.",
+    descriptionFr: "Corriger les informations sur votre permis de conduire provisoire.",
+    descriptionSw: "Rekebisha taarifa kwenye leseni yako ya udereva ya muda.",
+    scope: "licensing",
+    category: "licensing",
+    link: "/pdl-correction",
+    identifiers: [{ type: "ID" }, { type: "License" }],
+    additionalFields: [
+      { name: "fieldToCorrect", type: "text" },
+      { name: "correctInformation", type: "text" }
+    ],
+    isActive: true
+  },
+  {
+    id: "dl-correction",
+    nameEn: "Correction of DL",
+    nameFr: "Correction de Permis de Conduire",
+    nameSw: "Marekebisho ya Leseni ya Udereva",
+    descriptionEn: "Correct information on your driving license.",
+    descriptionFr: "Corriger les informations sur votre permis de conduire.",
+    descriptionSw: "Rekebisha taarifa kwenye leseni yako ya udereva.",
+    scope: "licensing",
+    category: "licensing",
+    link: "/dl-correction",
+    identifiers: [{ type: "ID" }, { type: "License" }],
+    additionalFields: [
+      { name: "fieldToCorrect", type: "text" },
+      { name: "correctInformation", type: "text" }
+    ],
+    isActive: true
   }
 ];
 
@@ -82,3 +140,4 @@ export const fetchDynamicServices = async (): Promise<Service[]> => {
   await delay(800); // Simulate network delay
   return dynamicServices.filter(service => service.isActive);
 };
+

@@ -1,7 +1,7 @@
 
 import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
-import { FileText } from "lucide-react";
+import { FileText, FilePlus, Truck } from "lucide-react";
 import { Service } from "@/types/service";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Badge } from "./ui/badge";
@@ -34,11 +34,22 @@ const DynamicServiceCard = ({ service }: DynamicServiceCardProps) => {
     }
   };
 
+  // Select icon based on service id
+  const getIcon = (id: string) => {
+    if (id.includes("dl-duplicate") || id.includes("foreign-dl") || id.includes("correction")) {
+      return <FilePlus className="h-6 w-6 text-police-700" />;
+    } else if (id.includes("track")) {
+      return <Truck className="h-6 w-6 text-police-700" />;
+    } else {
+      return <FileText className="h-6 w-6 text-police-700" />;
+    }
+  };
+
   return (
     <div className="service-card flex flex-col h-full bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
       <div className="flex justify-between mb-4">
         <div className="bg-police-100 p-3 inline-flex rounded-full self-start">
-          <FileText className="h-6 w-6 text-police-700" />
+          {getIcon(service.id)}
         </div>
         <Badge variant={getBadgeVariant(service.scope)} className="capitalize">
           {service.scope}

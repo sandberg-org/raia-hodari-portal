@@ -1,5 +1,6 @@
 
 export type ServiceScope = 'licensing' | 'traffic' | 'documents' | 'other';
+export type ServiceCategory = 'traffic' | 'driving' | 'documents' | 'licensing';
 export type FieldType = 'text' | 'number' | 'date';
 
 export interface ServiceField {
@@ -20,8 +21,10 @@ export interface Service {
   descriptionFr: string;
   descriptionSw: string;
   scope: ServiceScope;
+  category: ServiceCategory;
   link: string;
   identifiers: ServiceIdentifier[];
   additionalFields: ServiceField[];
   isActive: boolean;
 }
+
