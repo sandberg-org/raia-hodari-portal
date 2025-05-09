@@ -19,12 +19,18 @@ const ServicesSection = () => {
   const ServiceSkeletons = () => (
     <>
       {[1, 2, 3].map((i) => (
-        <div key={i} className="p-6 bg-white rounded-lg shadow-md">
-          <Skeleton className="h-8 w-8 rounded-full mb-4" />
-          <Skeleton className="h-6 w-2/3 mb-4" />
-          <Skeleton className="h-4 w-full mb-2" />
-          <Skeleton className="h-4 w-5/6 mb-6" />
-          <Skeleton className="h-10 w-full" />
+        <div key={i} className="bg-white rounded-lg shadow">
+          <div className="p-6">
+            <Skeleton className="h-10 w-10 rounded-lg mb-4" />
+            <Skeleton className="h-6 w-2/3 mb-4" />
+            <Skeleton className="h-4 w-full mb-2" />
+            <Skeleton className="h-4 w-5/6 mb-6" />
+            <div className="flex gap-2">
+              <Skeleton className="h-6 w-20 rounded-full" />
+              <Skeleton className="h-6 w-20 rounded-full" />
+            </div>
+          </div>
+          <Skeleton className="h-12 w-full" />
         </div>
       ))}
     </>
@@ -42,7 +48,7 @@ const ServicesSection = () => {
         
         <Tabs
           defaultValue="traffic"
-          className="w-full max-w-4xl mx-auto mb-10"
+          className="w-full max-w-5xl mx-auto mb-10"
           onValueChange={(value) => setActiveCategory(value as ServiceCategory)}
         >
           <div className="flex justify-center mb-6">
@@ -73,21 +79,24 @@ const ServicesSection = () => {
                 description={t("services.trafficFines.desc")}
                 icon={Search}
                 link="/traffic-fines"
-                buttonText={t("services.access")}
+                buttonText="Apply"
+                userTypes={["Individual", "Business"]}
               />
               <ServiceCard
                 title={t("services.fileComplaint")}
                 description="File a complaint or dispute a traffic ticket with the police service"
                 icon={FileText}
                 link="/file-complaint"
-                buttonText={t("services.access")}
+                buttonText="Apply"
+                userTypes={["Individual", "Business"]}
               />
               <ServiceCard
                 title={t("services.trackComplaint")}
                 description="Track the status of your filed complaints or disputes"
                 icon={MessageSquare}
                 link="/track"
-                buttonText={t("services.access")}
+                buttonText="Apply"
+                userTypes={["Individual"]}
               />
               
               {/* Dynamic traffic services */}
@@ -108,14 +117,16 @@ const ServicesSection = () => {
                 description={t("services.drivingResults.desc")}
                 icon={Search}
                 link="/driving-results"
-                buttonText={t("services.access")}
+                buttonText="Apply"
+                userTypes={["Individual"]}
               />
               <ServiceCard
                 title="Track License Production"
                 description="Track the status of your driving license production process"
                 icon={Truck}
                 link="/track-license"
-                buttonText={t("services.access")}
+                buttonText="Apply"
+                userTypes={["Individual"]}
               />
               
               {/* Dynamic driving services */}
@@ -136,14 +147,16 @@ const ServicesSection = () => {
                 description={t("services.lostDocuments.desc")}
                 icon={Search}
                 link="/lost-documents"
-                buttonText={t("services.access")}
+                buttonText="Apply"
+                userTypes={["Individual"]}
               />
               <ServiceCard
                 title={t("services.tempDrivingLicense")}
                 description={t("services.tempDrivingLicense.desc")}
                 icon={IdCard}
                 link="/temp-driving-license"
-                buttonText={t("services.access")}
+                buttonText="Apply"
+                userTypes={["Individual"]}
               />
               
               {/* Dynamic document services */}
